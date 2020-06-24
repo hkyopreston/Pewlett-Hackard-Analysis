@@ -224,7 +224,7 @@ WHERE dept_name IN ('Sales', 'Development')
 SELECT * FROM sales_development_info;
 
 -- MODULE 7 CHALLENGE
--- Deliverable 1: Number of Retiring Employees by Title
+-- Deliverable 1
 
 SELECT  
     t.title,
@@ -265,12 +265,27 @@ FROM
  ) tmp WHERE rn = 1
 ORDER BY emp_no;
 
+-- List of Employees born between Jan 1, 1952 and Dec 31, 1955
+
+SELECT * FROM retiring_info_challenge_no_dups;
+
+-- Number of Retiring Employees by Title
 SELECT
   title,
   COUNT(emp_no) as emp_cnt
 INTO count_by_title
 from retiring_info_challenge_no_dups
 group by 1
+
+SELECT * FROM count_by_title;
+
+-- Number of Titles Retiring
+SELECT 
+	COUNT(title)
+INTO num_titles_retiring
+FROM count_by_title;
+
+SELECT * FROM num_titles_retiring;
 
 -- Deliverabe 2: Mentorship Eligibility
 
